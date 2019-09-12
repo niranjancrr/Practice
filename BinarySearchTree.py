@@ -38,34 +38,47 @@ class BinarySearchTree:
         self._insert_helper(self.root,newnode)
         self.inorder_traversal(self.root)
 
-    def preorder_traversal(self,root=self.root):
+    def preorder_traversal(self,root=None):
 
         if not root:
             return
+        else:
+            print(' {} ' .format(root.value))
+            self.preorder_traversal(root.left)
+            self.preorder_traversal(root.right)
 
-        print(' {} ' .format(root.value),end = '')
-        self.inorder_traversal(root.left)
-        self.inorder_traversal(root.right)
-
-    def inorder_traversal(self,root=self.root):
-
-        if not root:
-            return
-
-        self.inorder_traversal(root.left)
-        print(' {} ' .format(root.value),end = '')
-        self.inorder_traversal(root.right)
-
-    def postorder_traversal(self,root=self.root):
+    def inorder_traversal(self,root=None):
 
         if not root:
             return
+        else:
+            self.inorder_traversal(root.left)
+            print(' {} ' .format(root.value))
+            self.inorder_traversal(root.right)
 
-        self.inorder_traversal(root.left)
-        self.inorder_traversal(root.right)
-        print(' {} ' .format(root.value),end = '')
-        
+    def postorder_traversal(self,root=None):
 
+        if not root:
+            return
+        else:
+            self.postorder_traversal(root.left)
+            self.postorder_traversal(root.right)
+            print(' {} ' .format(root.value))
+
+    def _mirror_helper(self,root=None):
+
+        if root == None:
+            return
+        else:
+            self._mirror_helper(root.left)
+            self._mirror_helper(root.right)
+            root.left,root.right = root.right,root.left
+
+    def mirror(self):
+
+        self.inorder_traversal(self.root)
+        self._mirror_helper(self.root)
+        self.inorder_traversal(self.root)
 
             
 
