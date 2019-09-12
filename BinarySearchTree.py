@@ -2,7 +2,6 @@
 class BinarySearchTree:
 
     class Node:
-
         left = None
         value = None
         right = None
@@ -80,6 +79,17 @@ class BinarySearchTree:
         self._mirror_helper(self.root)
         self.inorder_traversal(self.root)
 
+    def _height_helper(self,root=None):
+        if root == None:
+            return 0
+        else:
+            leftheight = self.height(root.left)
+            rightheight = self.height(root.right)
+            return max(leftheight,rightheight) + 1
+
+    def height(self):
+        return self._height_helper(self.root)
+        
             
 
 
