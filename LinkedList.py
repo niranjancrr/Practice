@@ -7,7 +7,7 @@ class LinkedList:
             self.value = value
 
     def __init__(self):
-        print('Initialized class')
+        print('Initialized LinkedList class')
         self.head = None
         self.len = 0
     
