@@ -5,7 +5,7 @@ def BalancedParanthesis(stringofBrackets):
     bracketDict = {']':'[','}':'{',')':'('}
     stack = Stack()
 
-    unbalanced = True
+    flag = True
 
     for char in stringofBrackets:
         if char in ['[','{','(']:
@@ -13,10 +13,10 @@ def BalancedParanthesis(stringofBrackets):
         elif char in [']','}',')']:
             bracket = stack.pop()
             if bracketDict[char] != bracket:
-                unbalanced = False
-                return unbalanced
+                flag = False
+                return flag
 
-    return unbalanced
+    return flag
 
 
 if __name__ == '__main__':
