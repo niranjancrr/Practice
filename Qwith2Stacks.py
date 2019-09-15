@@ -21,6 +21,7 @@ class Qwith2Stacks:
         while(len(self.s1)>0):
             self.s2.push(self.s1.pop())
         if len(self.s2) > 0:
+            self.length -= 1
             return self.s2.pop()
         else:
             print('Queue is Empty, Nothing to Dequeue')
