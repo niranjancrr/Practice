@@ -20,9 +20,12 @@ def dfs(root, value, flag = False):
                 print('Value was found')
                 flag = True
                 break
-            flag = dfs(element.left,value,flag)
-            flag = dfs(element.right,value,flag)
-        return flag
+            if element.left:
+                flag = dfs(element.left,value,flag)
+            if element.right:
+                flag = dfs(element.right,value,flag)
+    
+    return flag
 
 if __name__ == '__main__':
     from BinarySearchTree import BinarySearchTree
@@ -36,4 +39,9 @@ if __name__ == '__main__':
     bst.insert(8)
     bst.insert(10)
 
-    dfs(bst.root,3)
+    print(dfs(bst.root,2))
+    print(dfs(bst.root,3))
+    print(dfs(bst.root,7))
+    print(dfs(bst.root,6))
+    print(dfs(bst.root,8))
+    print(dfs(bst.root,9))
