@@ -12,7 +12,7 @@ class Stack:
 
     def push(self,value):
         self.ll.insert_start(value)
-        self.top = self.ll.head
+        self.top = self.ll.head.value
 
     def pop(self):
         if self.top == None:
@@ -20,7 +20,10 @@ class Stack:
             return False
         else:
             element = self.ll.delete_start()
-            self.top = self.ll.head
+            if self.ll.head == None:
+                self.top = None
+            else:
+                self.top = self.ll.head.value
             return element
     
     def peek(self):
