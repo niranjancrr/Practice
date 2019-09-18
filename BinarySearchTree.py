@@ -83,8 +83,8 @@ class BinarySearchTree:
         if root == None:
             return 0
         else:
-            leftheight = self.height(root.left)
-            rightheight = self.height(root.right)
+            leftheight = self._height_helper(root.left)
+            rightheight = self._height_helper(root.right)
             return max(leftheight,rightheight) + 1
 
     def height(self):
