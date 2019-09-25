@@ -18,11 +18,14 @@ class Qwith2Stacks:
         return True
 
     def dequeue(self):
-        while(len(self.s1)>0):
-            self.s2.push(self.s1.pop())
+
         if len(self.s2) > 0:
             self.length -= 1
             return self.s2.pop()
+        elif len(self.s1) > 0:
+            while(len(self.s1)>0):
+                self.s2.push(self.s1.pop())
+            self.dequeue()
         else:
             print('Queue is Empty, Nothing to Dequeue')
             return False
@@ -36,11 +39,19 @@ if __name__ == '__main__':
     q.enqueue(2)
     q.enqueue(1)
     print('dequeued {}' .format(q.dequeue()))
-    print('dequeued {}' .format(q.dequeue()))
-    print('dequeued {}' .format(q.dequeue()))
-    print('dequeued {}' .format(q.dequeue()))
-    print('dequeued {}' .format(q.dequeue()))
-    print('dequeued {}' .format(q.dequeue()))
+    #print('dequeued {}' .format(q.dequeue()))
+    #print('dequeued {}' .format(q.dequeue()))
+    #print('dequeued {}' .format(q.dequeue()))
+    #print('dequeued {}' .format(q.dequeue()))
+    #print('dequeued {}' .format(q.dequeue()))
+    q.dequeue()
+    q.enqueue(6)
+    q.dequeue()
+    q.dequeue()
+    q.dequeue()
+    q.dequeue()
+    q.dequeue()
+   
 
 
 
